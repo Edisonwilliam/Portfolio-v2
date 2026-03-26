@@ -1,10 +1,10 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 
-const ROLES = ["Full-Stack", "Frontend", "Backend"];
+const ROLES = ["Full Stack", "Frontend", "Backend"];
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -17,73 +17,56 @@ export function Hero() {
   }, []);
 
   return (
-    <motion.section 
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="relative w-full flex flex-col items-center justify-center pt-32 pb-16 px-4 md:px-6 text-center overflow-x-hidden"
+    <motion.section
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="max-w-4xl mx-auto pt-40 pb-20 px-6"
     >
-      {/* Background Pixel Text Effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full flex items-center justify-center opacity-[0.02] dark:opacity-[0.04] pointer-events-none z-0 select-none">
-        <h2 className="text-[22vw] font-black tracking-tighter uppercase whitespace-nowrap blur-sm">
-          EDISON
-        </h2>
-      </div>
-      
-      {/* Centered Avatar */}
-      <motion.div 
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.5 }}
-        className="relative z-10 w-28 h-28 md:w-36 md:h-36 mb-8 rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-zinc-900 flex-shrink-0 mx-auto ring-1 ring-zinc-200/50 dark:ring-zinc-800/50"
-      >
-        <Image 
-          src="/avatar.jpg" 
-          alt="Edison William" 
-          width={144} 
-          height={144} 
-          className="object-cover bg-zinc-100 dark:bg-zinc-800"
-          priority
-        />
-      </motion.div>
-      
-      {/* Centered Headlines */}
-      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
-        <motion.h1 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-          className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mb-6 leading-tight flex flex-col items-center"
+      <div className="flex flex-col items-start gap-12">
+        {/* Avatar: Small and clean as seen in image */}
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="relative w-24 h-24 rounded-full overflow-hidden"
         >
-          <span>Hey, I'm <span className="italic text-zinc-800 dark:text-zinc-200">Edison William.</span></span>
-          <div className="mt-2 flex items-center justify-center gap-[0.3em] overflow-visible">
-            <div className="relative h-[1.2em] w-min flex items-center">
+          <Image
+            src="/avatar.jfif"
+            alt="Edison William"
+            fill
+            className="object-cover"
+            priority
+          />
+        </motion.div>
+
+        {/* Headlines: Bold, tight, and stacked as in image */}
+        <div className="space-y-12">
+          <div className="space-y-1">
+            <h1 className="text-5xl md:text-[80px] font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.1]">
+              Hey, I'm Edison William.
+            </h1>
+            <div className="relative h-[64px] md:h-[100px] overflow-visible">
               <AnimatePresence mode="wait">
-                <motion.span
+                <motion.h2
                   key={ROLES[index]}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="whitespace-nowrap"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="text-5xl md:text-[80px] font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.1] whitespace-nowrap"
                 >
-                  {ROLES[index]}
-                </motion.span>
+                  {ROLES[index]} Developer
+                </motion.h2>
               </AnimatePresence>
             </div>
-            <span>Developer</span>
           </div>
-        </motion.h1>
-        
-        <motion.p 
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          className="text-lg md:text-2xl text-zinc-600 dark:text-zinc-400 max-w-2xl px-4 leading-relaxed"
-        >
-          Building high-performance web applications with a focus on seamless user experiences and robust backend architecture.
-        </motion.p>
+
+          {/* Subtext: Two distinct lines in subtle color */}
+          <div className="space-y-1 text-xl md:text-[22px] text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal">
+            <p>I’m Edison William, a Nigerian full-stack developer with experience in both frontend and backend development. I specialize in building responsive user interfaces and developing scalable server-side applications, with a focus on creating efficient, reliable, and user-friendly web solutions.</p>
+          </div>
+        </div>
       </div>
     </motion.section>
   );

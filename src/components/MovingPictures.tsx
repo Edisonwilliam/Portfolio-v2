@@ -8,8 +8,6 @@ const IMAGES = [
   "/project2.jpg",
   "/project3.jpg",
   "/project4.jpg",
-  "/photo1.jpg",
-  "/avatar.jpg",
 ];
 
 export function MovingPictures() {
@@ -46,9 +44,6 @@ export function MovingPictures() {
         </motion.div>
       </div>
       
-      {/* Side Gradients for fading effect */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-white dark:from-[#030303] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white dark:from-[#030303] to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

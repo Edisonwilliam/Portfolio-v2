@@ -2,8 +2,16 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
+
+const PHOTOS = [
+  { src: "/photo1.jpeg", alt: "Edison", caption: "@edison", rotate: -6, xOffset: "-25%" },
+  { src: "/photo2.jpeg", alt: "Edison", caption: "@codewithedison", rotate: 4, xOffset: "0%" },
+];
 
 export function About() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
   return (
     <section className="max-w-3xl mx-auto px-6 py-24">
       <motion.div
@@ -25,25 +33,30 @@ export function About() {
 
         {/* Polaroid Stack */}
         <div className="relative h-96 mt-16 flex items-center justify-center">
-          <motion.div 
-            whileHover={{ scale: 1.05, rotate: -2, zIndex: 30 }}
-            className="absolute left-1/4 -translate-x-1/2 rotate-[-6deg] bg-white p-3 pb-12 shadow-2xl border border-zinc-200"
-          >
-            <div className="w-56 h-64 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
-              <Image src="/photo1.jpg" alt="Edison" fill className="object-cover" />
-            </div>
-            <p className="mt-4 text-center font-serif text-sm text-zinc-600">@edison</p>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ scale: 1.05, rotate: 2, zIndex: 30 }}
-            className="absolute left-1/2 -translate-x-1/2 rotate-[4deg] mt-8 bg-white p-3 pb-12 shadow-2xl border border-zinc-200"
-          >
-            <div className="w-56 h-64 overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-500">
-              <Image src="/photo2.jpg" alt="Edison" fill className="object-cover" />
-            </div>
-            <p className="mt-4 text-center font-serif text-sm text-zinc-600">@codewithedison</p>
-          </motion.div>
+          {PHOTOS.map((photo, index) => (
+            <motion.div 
+              key={index}
+              initial={{ rotate: photo.rotate, x: photo.xOffset }}
+              animate={{ 
+                rotate: activeIndex === index ? 0 : photo.rotate,
+                scale: activeIndex === index ? 1.1 : 1,
+                zIndex: activeIndex === index ? 50 : 10 + index
+              }}
+              whileHover={{ 
+                scale: activeIndex === index ? 1.1 : 1.05,
+                rotate: activeIndex === index ? 0 : photo.rotate / 2,
+                zIndex: 60
+              }}
+              onClick={() => setActiveIndex(activeIndex === index ? null : index)}
+              className="absolute cursor-pointer bg-white p-3 pb-12 shadow-2xl border border-zinc-200 dark:border-zinc-800 transition-shadow duration-300"
+              style={{ left: "50%", marginLeft: "-112px" /* Half of width to center */ }}
+            >
+              <div className="w-56 h-64 overflow-hidden relative transition-all duration-500">
+                <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
+              </div>
+              <p className="mt-4 text-center font-serif text-sm text-zinc-600 dark:text-zinc-500">{photo.caption}</p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

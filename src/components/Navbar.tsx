@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Home, Twitter, Github, Linkedin } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { clsx, type ClassValue } from "clsx";
@@ -14,7 +15,7 @@ function cn(...inputs: ClassValue[]) {
 const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "https://linkedin.com/in/edisonwilliam", label: "LinkedIn", icon: Linkedin, external: true },
-  { href: "https://x.com/CodeEdison", label: "Twitter", icon: Twitter, external: true },
+  { href: "https://x.com/CodeEdison", label: "Twitter", logo: "/twitter.png", external: true },
   { href: "https://github.com/Edisonwilliam", label: "Github", icon: Github, external: true },
 ];
 
@@ -46,7 +47,18 @@ export function Navbar() {
                   : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50"
               )}
             >
-              <item.icon size={18} strokeWidth={2} />
+              {item.icon ? (
+                <item.icon size={18} strokeWidth={2} />
+              ) : (
+                <div className="relative w-[18px] h-[18px]">
+                  <Image 
+                    src={item.logo!} 
+                    alt={item.label} 
+                    fill 
+                    className="object-contain dark:invert" 
+                  />
+                </div>
+              )}
               <motion.span
                 initial={{ width: 0, opacity: 0 }}
                 whileHover={{ width: "auto", opacity: 1, marginLeft: 8 }}
