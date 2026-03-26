@@ -25,20 +25,16 @@ export function Hero() {
     >
       <div className="flex flex-col items-start gap-12">
         {/* Avatar: Small and clean as seen in image */}
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative w-24 h-24 rounded-full overflow-hidden"
-        >
+        <div className="w-24 h-24 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm surface-zinc-100">
           <Image
             src="/avatar.jfif"
             alt="Edison William"
-            fill
+            width={96}
+            height={96}
             className="object-cover"
             priority
           />
-        </motion.div>
+        </div>
 
         {/* Headlines: Bold, tight, and stacked as in image */}
         <div className="space-y-12">
