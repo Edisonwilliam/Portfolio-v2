@@ -22,17 +22,19 @@ export const PROJECTS: Project[] = [
     visitLink: "https://artlabsproject-d81k.vercel.app/"
   },
   {
-    id: "uncutxtra",
-    title: "Uncutxtra Award Night",
-    description: "Modern, high-performance landing page for UncutXtra Magazine's annual award show...",
-    image: "/project3.jpg",
-    visitLink: "#"
-  },
-  {
-    id: "emojidb",
-    title: "EmojiDB",
-    description: "A database, but encrypted with emojis. A lightweight, secure database with a fun twist...",
-    image: "/project4.jpg",
-    visitLink: "#"
-  }
+  id: "devtrack",
+  title: "DevTrack",
+  description:
+    "A full-stack freelancer management platform for managing clients, projects, tasks, invoices, and online payments from one dashboard.",
+  image: "/project3.jpg",
+  visitLink: "https://dev-track-olive-five.vercel.app/"
+},
+{
+  id: "campusconnect",
+  title: "CampusConnect",
+  description:
+    "A full-stack campus platform that brings together student marketplaces, accommodation, campus services, study groups, and secure payments in one place.",
+  image: "/project4.jpg",
+  visitLink: "https://campusconnect-omega-snowy.vercel.app/"
+}
 ];
