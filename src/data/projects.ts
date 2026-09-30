@@ -26,7 +26,7 @@ export const PROJECTS: Project[] = [
   title: "DevTrack",
   description:
     "A full-stack freelancer management platform for managing clients, projects, tasks, invoices, and online payments from one dashboard.",
-  image: "/project3.jpg",
+  image: "/project4.jpg",
   visitLink: "https://dev-track-olive-five.vercel.app/"
 },
 {
@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
   title: "CampusConnect",
   description:
     "A full-stack campus platform that brings together student marketplaces, accommodation, campus services, study groups, and secure payments in one place.",
-  image: "/project4.jpg",
+  image: "/project3.jpg",
   visitLink: "https://campusconnect-omega-snowy.vercel.app/"
 }
 ];
