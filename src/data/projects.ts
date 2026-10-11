@@ -36,7 +36,7 @@ export const PROJECTS: Project[] = [
     "A full-stack campus platform that brings together student marketplaces, accommodation, campus services, study groups, and secure payments in one place.",
   image: "/project3.jpg",
   visitLink: "https://campusconnect-omega-snowy.vercel.app/"
-}
+},
 {
   id: "tableflow",
   title: "Tableflow",

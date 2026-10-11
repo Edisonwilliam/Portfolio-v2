@@ -4,13 +4,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const TECH_STACK = [
-  { name: "Next.js", icon: "/Next.js.png" },
+  { name: "Next.js", icon: "/Nextjs.png" },
   { name: "React", icon: "/React.png" },
   { name: "TypeScript", icon: "/TypeScript.png" },
   { name: "JavaScript", icon: "/JavaScript.png" },
   { name: "Tailwind CSS", icon: "/Tailwind CSS.png" },
-  { name: "Express.js", icon: "/Express.png" },
+  { name: "Express.js", icon: "/Expressjs.png" },
   { name: "MongoDB", icon: "/MongoDB.png" },
+  { name: "Nestjs", icon: "/Nestjs.png" },
+  { name: "PostgreSQL", icon: "/Postgresql.png" },
 ];
 
 export function TechStack() {
