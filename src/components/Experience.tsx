@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const EXPERIENCE = [
   {
-    date: "November 2025 - till date",
+    date: "November 2025 - September 2026",
     role: "Frontend Developer at",
     company: "MyArtelab",
     link: "https://myartelab.com", // Assuming the link, can be # if unknown
