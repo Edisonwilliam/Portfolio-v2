@@ -8,6 +8,7 @@ const IMAGES = [
   "/project2.jpg",
   "/project3.jpg",
   "/project4.jpg",
+  "/project5.jpg",
 ];
 
 export function MovingPictures() {
