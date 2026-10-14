@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
   id: "forme-living",
   title: "Forme Living",
   description:
-    "Forme Living is a full-stack e-commerce platform for modern home decor, built with React and TypeScript. It features a sleek design, seamless user experience, and robust backend functionality.",
+    "Forme Living is a full-stack luxury furniture e-commerce platform for modern home decor, built with React, Node.js, Express, and MongoDB and TypeScript it features secure authentication, Google Sign-In, and a responsive design. It features a sleek design, seamless user experience, payment processing, and robust backend functionality.",
   image: "/project6.jpg",
   visitLink: "https://forme-living.vercel.app/"
 }
