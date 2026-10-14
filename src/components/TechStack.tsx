@@ -13,6 +13,7 @@ const TECH_STACK = [
   { name: "MongoDB", icon: "/MongoDB.png" },
   { name: "Nestjs", icon: "/Nestjs.png" },
   { name: "PostgreSQL", icon: "/Postgresql.png" },
+  { name: "Docker", icon: "/docker.png" },
 ];
 
 export function TechStack() {
