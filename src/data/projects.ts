@@ -44,5 +44,13 @@ export const PROJECTS: Project[] = [
     "TableFlow is a full-stack restaurant reservation platform that enables users to discover restaurants, explore interactive menu experiences, and book tables seamlessly. Built with React, Node.js, Express, and MongoDB, it features secure authentication, Google Sign-In, and a responsive, premium user interface.",
   image: "/project5.jpg",
   visitLink: "https://tableflowe.vercel.app/"
+},
+{
+  id: "forme-living",
+  title: "Forme Living",
+  description:
+    "Forme Living is a full-stack e-commerce platform for modern home decor, built with React and TypeScript. It features a sleek design, seamless user experience, and robust backend functionality.",
+  image: "/project6.jpg",
+  visitLink: "https://forme-living.vercel.app/"
 }
 ];
