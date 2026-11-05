@@ -1,31 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
-
-const ROLES = ["Full Stack", "Frontend", "Backend"];
+import Link from "next/link";
+import { ArrowDown, Mail } from "lucide-react";
 
 export function Hero() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % ROLES.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <motion.section
+      id="home"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="max-w-4xl mx-auto pt-40 pb-20 px-6"
+      aria-labelledby="hero-heading"
     >
       <div className="flex flex-col items-start gap-12">
-        {/* Avatar: Small and clean as seen in image */}
-        <div className="w-24 h-24 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-900">
+        {/* Avatar */}
+        <div className="w-24 h-24 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm bg-zinc-100 dark:bg-zinc-900 flex-shrink-0">
           <Image
             src="/avatar.jfif"
             alt="Edison William"
@@ -33,35 +25,53 @@ export function Hero() {
             height={96}
             className="object-cover w-full h-full"
             priority
+            sizes="96px"
+            // TODO (P9): convert avatar.jfif → avatar.webp for proper optimization;
+            // remove unoptimized flag after conversion.
             unoptimized
           />
         </div>
 
-        {/* Headlines: Bold, tight, and stacked as in image */}
-        <div className="space-y-12 w-full">
-          <div className="space-y-4 md:space-y-1">
-            <h1 className="text-4xl sm:text-5xl md:text-[80px] font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.1]">
-              Hey, I'm Edison William.
+        {/* Headlines + copy */}
+        <div className="space-y-8 w-full">
+          <div className="space-y-3">
+            {/* Consistent role label — no rotating text */}
+            <p className="text-sm font-mono tracking-widest uppercase text-zinc-500 dark:text-zinc-400">
+              Full-Stack Developer
+            </p>
+            <h1
+              id="hero-heading"
+              className="text-4xl sm:text-5xl md:text-[72px] font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.05]"
+            >
+              I build full-stack web products, from the interface to the
+              database.
             </h1>
-            <div className="relative min-h-[48px] md:min-h-[100px] overflow-visible">
-              <AnimatePresence mode="wait">
-                <motion.h2
-                  key={ROLES[index]}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="text-4xl sm:text-5xl md:text-[80px] font-bold tracking-tight text-zinc-900 dark:text-zinc-50 leading-[1.1]"
-                >
-                  {ROLES[index]} Developer
-                </motion.h2>
-              </AnimatePresence>
-            </div>
           </div>
 
-          {/* Subtext: Two distinct lines in subtle color */}
-          <div className="space-y-4 text-lg md:text-[22px] text-zinc-500 dark:text-zinc-400 leading-relaxed font-normal max-w-2xl">
-            <p>I’m Edison William, a Nigerian full-stack developer with experience in both frontend and backend development. I specialize in building responsive user interfaces and developing scalable server-side applications, with a focus on creating efficient, reliable, and user-friendly web solutions.</p>
+          {/* Honest, specific sub-copy */}
+          <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-2xl">
+            Full-stack developer working with React, Next.js, Node.js and
+            MongoDB/PostgreSQL. I&apos;ve built and shipped a freelancer management
+            platform, a campus marketplace and a restaurant booking app —
+            including auth, payments and deployment. Open to freelance projects
+            and full-time roles.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="#work"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 font-semibold text-sm transition-all hover:shadow-xl hover:shadow-black/20 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
+            >
+              View work <ArrowDown size={16} aria-hidden="true" />
+            </Link>
+            <a
+              href="mailto:edisonobieowuo8@gmail.com"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 font-semibold text-sm transition-all hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-50 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
+            >
+              <Mail size={16} aria-hidden="true" />
+              Start a project
+            </a>
           </div>
         </div>
       </div>

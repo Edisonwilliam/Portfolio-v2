@@ -1,12 +1,13 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+
+const BASE_URL = "https://edisonportfoli.netlify.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: '/private/',
+      userAgent: "*",
+      allow: "/",
     },
-    sitemap: 'https://edisonwilliam.com/sitemap.xml',
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }
