@@ -38,6 +38,14 @@ export function Contact() {
     }
   };
 
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If mobile, open native mail client
+    if (typeof window !== "undefined" && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      e.preventDefault();
+      window.location.href = `mailto:${EMAIL}?subject=Project%20Inquiry%20%E2%80%94%20Let's%20Work%20Together`;
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -87,9 +95,12 @@ export function Contact() {
 
         {/* CTA buttons */}
         <div className="flex flex-wrap gap-4 items-center">
-          {/* Email CTA — leads directly to sending an email */}
+          {/* Email CTA — opens Gmail compose directly, with native fallback on mobile */}
           <a
-            href={`mailto:${EMAIL}?subject=Project%20Inquiry%20%E2%80%94%20Let's%20Work%20Together`}
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}&su=Project%20Inquiry%20%E2%80%94%20Let's%20Work%20Together`}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleEmailClick}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 font-semibold text-sm transition-all hover:shadow-xl hover:shadow-black/20 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
           >
             <Mail size={16} aria-hidden="true" />
@@ -126,6 +137,17 @@ export function Contact() {
             Download CV
           </a>
         </div>
+
+        {/* Alternative: native mailto app link */}
+        <p className="text-xs text-zinc-400 dark:text-zinc-500">
+          Prefer your default desktop mail app?{" "}
+          <a
+            href={`mailto:${EMAIL}?subject=Project%20Inquiry%20%E2%80%94%20Let's%20Work%20Together`}
+            className="underline hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+          >
+            Open in default mail client
+          </a>
+        </p>
 
         {/* Social links */}
         <div className="flex gap-3 pt-4 border-t border-zinc-100 dark:border-zinc-800">

@@ -6,6 +6,14 @@ import Link from "next/link";
 import { ArrowDown, Mail } from "lucide-react";
 
 export function Hero() {
+  const handleEmailClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // If mobile, allow native mailto app
+    if (typeof window !== "undefined" && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      e.preventDefault();
+      window.location.href = "mailto:edisonobieowuo8@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Start%20a%20Project";
+    }
+  };
+
   return (
     <motion.section
       id="home"
@@ -52,7 +60,7 @@ export function Hero() {
           <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-2xl">
             Full-stack developer working with React, Next.js, Node.js and
             MongoDB/PostgreSQL. I&apos;ve built and shipped a freelancer management
-            platform, a campus marketplace and a restaurant booking app
+            platform, a campus marketplace and a restaurant booking app —
             including auth, payments and deployment. Open to freelance projects
             and full-time roles.
           </p>
@@ -66,7 +74,10 @@ export function Hero() {
               View work <ArrowDown size={16} aria-hidden="true" />
             </Link>
             <a
-              href="mailto:edisonobieowuo8@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20Start%20a%20Project"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=edisonobieowuo8@gmail.com&su=Project%20Inquiry%20%E2%80%94%20Start%20a%20Project"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleEmailClick}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 font-semibold text-sm transition-all hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-50 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
             >
               <Mail size={16} aria-hidden="true" />
