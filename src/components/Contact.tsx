@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Download, Github, Linkedin, Twitter, Clock, MapPin } from "lucide-react";
+import { Mail, Download, Github, Linkedin, Twitter, Clock, MapPin, Copy, Check } from "lucide-react";
 
 const EMAIL = "edisonobieowuo8@gmail.com";
 const CV_URL = "/Edison_William_CV.pdf";
@@ -25,6 +26,18 @@ const SOCIAL_LINKS = [
 ];
 
 export function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -73,24 +86,35 @@ export function Contact() {
         </div>
 
         {/* CTA buttons */}
-        <div className="flex flex-wrap gap-4">
-          {/* Email — always available */}
+        <div className="flex flex-wrap gap-4 items-center">
+          {/* Email CTA — leads directly to sending an email */}
           <a
-            href={`mailto:${EMAIL}`}
+            href={`mailto:${EMAIL}?subject=Project%20Inquiry%20%E2%80%94%20Let's%20Work%20Together`}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-zinc-900 dark:bg-zinc-50 text-zinc-50 dark:text-zinc-900 font-semibold text-sm transition-all hover:shadow-xl hover:shadow-black/20 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
           >
             <Mail size={16} aria-hidden="true" />
-            {EMAIL}
+            Send me an email
           </a>
 
-          {/* Booking link — TODO: replace span with <a> once booking URL is set */}
-          <span
-            title="Booking link coming soon — TODO: replace with Calendly / Cal.com URL"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-zinc-200 dark:border-zinc-700 text-zinc-400 dark:text-zinc-500 font-semibold text-sm cursor-not-allowed select-none"
-            aria-label="Booking link coming soon"
+          {/* Quick copy email address */}
+          <button
+            type="button"
+            onClick={handleCopyEmail}
+            aria-label="Copy email address"
+            className="inline-flex items-center gap-2 px-4 py-3 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 font-mono text-sm transition-all hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-50 active:scale-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-900"
           >
-            Book a 20-min call (coming soon)
-          </span>
+            {copied ? (
+              <>
+                <Check size={16} className="text-green-500" aria-hidden="true" />
+                <span className="text-green-600 dark:text-green-400">Copied!</span>
+              </>
+            ) : (
+              <>
+                <Copy size={16} aria-hidden="true" />
+                <span>{EMAIL}</span>
+              </>
+            )}
+          </button>
 
           {/* CV download */}
           <a
@@ -123,4 +147,3 @@ export function Contact() {
     </section>
   );
 }
-

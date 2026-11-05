@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
     repoUrl: "https://github.com/Edisonwilliam/DevTrack",
     year: 2025,
     featured: true,
-    payment: "TODO: Confirm payment provider (Paystack / Stripe / Flutterwave)",
+    payment: "Paystack",
   },
   {
     id: "campusconnect",
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     description:
       "Full-stack campus platform combining a student marketplace, accommodation listings, campus services, study groups, and secure payments.",
     role: "Full-Stack Developer (solo project)",
-    stack: ["React", "TypeScript", "Node.js", "Express", "MongoDB"],
+    stack: ["Next.js", "TypeScript", "Node.js", "Nest-js", "PostgreSQL"],
     problem:
       "Campus life is scattered: Facebook groups for buying/selling, WhatsApp for housing, word-of-mouth for services. CampusConnect brings these into one verified, payment-enabled platform.",
     solution:
@@ -94,7 +94,7 @@ export const PROJECTS: Project[] = [
     repoUrl: "https://github.com/Edisonwilliam/CampusConnect",
     year: 2025,
     featured: true,
-    payment: "TODO: Confirm payment provider",
+    payment: "Stripe",
   },
   {
     id: "tableflow",
@@ -148,7 +148,7 @@ export const PROJECTS: Project[] = [
     repoUrl: "https://github.com/Edisonwilliam/Forme-living",
     year: 2025,
     featured: true,
-    payment: "TODO: Confirm payment provider",
+    payment: "Paystack",
   },
   {
     id: "artsy",
