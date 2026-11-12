@@ -68,7 +68,7 @@ export function Contact() {
           </h2>
           <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
             Have a product to build? I take on a small number of freelance
-            projects at a time. Email me or book a 20-minute call — I reply
+            projects at a time. Email me - I reply
             within 24 hours.
           </p>
         </div>

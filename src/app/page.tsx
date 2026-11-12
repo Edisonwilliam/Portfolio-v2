@@ -8,7 +8,7 @@ import { Contact } from "@/components/Contact";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Edison William — Full-Stack Developer",
+  title: "Edison William - Full-Stack Developer",
   description:
     "Full-stack developer working with React, Next.js, Node.js, and MongoDB/PostgreSQL. I build and ship complete web products — auth, payments, deployment, and all.",
 };
@@ -26,7 +26,7 @@ export default function Home() {
 
       <footer className="max-w-4xl mx-auto w-full px-6 py-12 border-t border-zinc-100 dark:border-zinc-800 text-center text-sm text-zinc-500">
         <p>
-          © {new Date().getFullYear()} Edison William · Built with Next.js &amp;
+          © {new Date().getFullYear()}  Edison William · Built with Next.js &amp;
           Tailwind CSS ·{" "}
           <a
             href="mailto:edisonobieowuo8@gmail.com"

@@ -60,7 +60,7 @@ export function Hero() {
           <p className="text-lg md:text-xl text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-2xl">
             Full-stack developer working with React, Next.js, Node.js and
             MongoDB/PostgreSQL. I&apos;ve built and shipped a freelancer management
-            platform, a campus marketplace and a restaurant booking app —
+            platform, a campus marketplace and a restaurant booking app -
             including auth, payments and deployment. Open to freelance projects
             and full-time roles.
           </p>
